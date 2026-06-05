@@ -41,6 +41,7 @@ import { HealthController } from './health.controller';
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
       entities: [User, Subject, Skill, Question, Tryout, TryoutQuestion, UserAttempt, UserSkillMastery, Subscription, Transaction, RefreshToken],
+      // Keep disabled outside development; use migrations for other environments.
       synchronize: process.env.NODE_ENV === 'development',
     }),
     AuthModule,
