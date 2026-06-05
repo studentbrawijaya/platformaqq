@@ -41,3 +41,16 @@ pytest services/ai-service/tests
 ## CI
 
 Workflow CI ada di `.github/workflows/ci.yml` dan menjalankan lint, test, build untuk backend, frontend, dan ai-service.
+
+## Deploy Frontend ke Vercel
+
+> Repo ini monorepo. Yang di-deploy ke Vercel adalah `apps/frontend`.
+
+1. Buat project baru di Vercel dari repository ini.
+2. Atur **Root Directory** ke `apps/frontend`.
+3. Set Environment Variables:
+   - `NEXT_PUBLIC_API_URL` = URL backend publik + `/api/v1` (contoh: `https://api.domainkamu.com/api/v1`)
+   - `NEXT_PUBLIC_SOCKET_URL` = URL backend publik (contoh: `https://api.domainkamu.com`)
+4. Deploy.
+
+Untuk backend, pastikan `FRONTEND_URL` di environment backend diisi domain frontend Vercel agar CORS mengizinkan request dari frontend produksi.
